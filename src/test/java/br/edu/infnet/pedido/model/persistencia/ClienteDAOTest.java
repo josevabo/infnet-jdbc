@@ -13,7 +13,7 @@ public class ClienteDAOTest {
 	
 	@Before
 	public void inicializar() {
-		IDAO clienteDAO = new ClienteDAO();
+		IDAO<Cliente> clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente("Jose das Couves"); 
 		clienteDAO.salvar(cliente);
 	}
@@ -57,11 +57,9 @@ public class ClienteDAOTest {
 
 	@Test
 	public void testObterCliente() {
-		IDAO clienteDAO = new ClienteDAO();
+		IDAO<Cliente> clienteDAO = new ClienteDAO();
 		List<Cliente> lista = clienteDAO.listarTodos();
 		Cliente cliente = clienteDAO.obter(lista.get(0).getCodigo());
 		Assert.assertNotNull(cliente);;
 	}
-	
-
 }

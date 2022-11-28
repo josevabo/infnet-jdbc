@@ -13,8 +13,8 @@ public class JdbcUtil {
 	
 	public static Connection obterConexao() {
 		logger.info("Inciando conexao com o banco de dados");
-		String password = "";
-		String user= "root";
+		String password = "admin";
+		String user= "admin";
 		String url = "jdbc:mysql://localhost:3306/app?createDatabaseIfNotExist=true";
 		try {
 			return DriverManager.getConnection(url, user, password);

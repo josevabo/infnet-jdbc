@@ -52,3 +52,22 @@ select p.codigo, p.data, c.nome, pr.descricao, pr.preco from pedido p
 	on p.cliente_cod = c.codigo
 	and p.codigo = i.pedido_cod
 	and pr.codigo = i.produto_cod;
+
+create table especialidade (
+    codigo bigint primary key auto_increment,
+    nome varchar(255) not null unique
+   );
+
+insert into especialidade (codigo, nome) value (null,'clinico geral');
+insert into especialidade (codigo, nome) value (null,'cardiologista');
+insert into especialidade (codigo, nome) value (null,'ginecologista');
+
+create table medico (
+    codigo bigint primary key auto_increment,
+    nome varchar(255) not null,
+    especialidade_codigo bigint not null,
+    crm varchar(15),
+
+    foreign key (especialidade_codigo) references especialidade(codigo)
+   );
+
