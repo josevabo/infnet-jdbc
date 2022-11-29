@@ -60,7 +60,7 @@ public class MedicoDAO extends JdbcDAO<Medico>{
 
 	@Override
 	public Medico obter(Long codigo){
-		String sql = "select m.codigo, m.nome, m.crm, m.especialidade_codigo, e.nome as especialidade_nome from medico m join especialidade e on m.especialidade_codigo = e.codigo where codigo = ? ";
+		String sql = "select m.codigo, m.nome, m.crm, e.codigo as especialidade_codigo, e.nome as especialidade_nome from medico m join especialidade e on m.especialidade_codigo = e.codigo where m.codigo = ? ";
 		Medico medico = new Medico("medico novo", "12345rj", new Especialidade(1L));
 		try {
 			pstm = con.prepareStatement(sql);
